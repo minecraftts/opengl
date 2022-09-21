@@ -2,11 +2,9 @@
 
 Node.js bindings to OpenGL & GLEW
 
-Please note this package currently **ONLY** works on Windows, please consider PR-ing with GLEW binaries for Linux and MacOS
-
 ### Installation
 
-Please ensure you have all the required build tools for your OS then you can install with
+Please ensure you have CMake as well as a full C++ toolchain for your OS then you can install with
 
 ```
 npm install @minecraftts/opengl
