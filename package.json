@@ -13,6 +13,14 @@
     "gl",
     "graphics"
   ],
+  "homepage": "https://github.com/minecraftts/opengl",
+  "bugs": {
+    "url": "https://github.com/minecraftts/opengl/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minecraftts/opengl.git"
+  },
   "author": "zani",
   "license": "MIT",
   "dependencies": {
