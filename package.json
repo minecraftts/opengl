@@ -1,6 +1,6 @@
 {
   "name": "@minecraftts/opengl",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "OpenGL & GLEW bindings for Node.js",
   "main": "index.js",
   "scripts": {
