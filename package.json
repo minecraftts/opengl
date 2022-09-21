@@ -1,6 +1,6 @@
 {
   "name": "@minecraftts/opengl",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "OpenGL & GLEW bindings for Node.js",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,22 @@
     "postinstall": "npm run build",
     "publish": "npm publish --access public"
   },
+  "files": [
+    "src/bindings.cc",
+    "CMakeLists.txt",
+    "glew.d.ts",
+    "glew.js",
+    "index.d.ts",
+    "index.js",
+    "deps/glew-cmake/auto/**",
+    "deps/glew-cmake/build/**",
+    "deps/glew-cmake/config/**",
+    "deps/glew-cmake/doc/**",
+    "deps/glew-cmake/glew-cmake/**",
+    "deps/glew-cmake/include/**",
+    "deps/glew-cmake/src/**",
+    "deps/glew-cmake/*"
+  ],
   "keywords": [
     "opengl",
     "gl",
