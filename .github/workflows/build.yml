@@ -9,6 +9,9 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     steps:
+      - run: sudo apt install -y xorg-dev libgl1-mesa-dev
+        if: matrix.os == 'ubuntu-latest'
+
       - uses: actions/checkout@v3
         with:
           submodules: recursive
