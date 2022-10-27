@@ -11,9 +11,10 @@ include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_JS_INC})
 
 add_library(${PROJECT_NAME} SHARED ${SOURCE} ${CMAKE_JS_SRC})
 
-set(glew-cmake_BUILD_SHARED OFF) 
-set(ONLY_LIBS ON)
 add_subdirectory(deps/glew-cmake)
+
+option(glew-cmake_BUILD_SHARED OFF) 
+option(ONLY_LIBS ON)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
