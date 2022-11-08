@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.9)
 cmake_policy(SET CMP0042 NEW)
 set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 project(opengl)
 
