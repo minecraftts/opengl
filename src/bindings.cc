@@ -6793,6 +6793,239 @@ Napi::Boolean __glIsVertexArray(const Napi::CallbackInfo& info) {
     return Napi::Boolean::New(env, glIsVertexArray(array));
 }
 
+// GL_ARB_framebuffer_object
+
+void __glBindFramebuffer(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLuint framebuffer = info[1].As<Napi::Number>().Uint32Value();
+
+    glBindFramebuffer(target, framebuffer);
+}
+
+void __glBindRenderbuffer(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLuint renderbuffer = info[1].As<Napi::Number>().Uint32Value();
+
+    glBindRenderbuffer(target, renderbuffer);
+}
+
+void __glBlitFramebuffer(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLint srcX0 = info[0].As<Napi::Number>().Int32Value();
+    GLint srcY0 = info[1].As<Napi::Number>().Int32Value();
+    GLint srcX1 = info[2].As<Napi::Number>().Int32Value();
+    GLint srcY1 = info[3].As<Napi::Number>().Int32Value();
+
+    GLint dstX0 = info[4].As<Napi::Number>().Int32Value();
+    GLint dstY0 = info[5].As<Napi::Number>().Int32Value();
+    GLint dstX1 = info[6].As<Napi::Number>().Int32Value();
+    GLint dstY1 = info[7].As<Napi::Number>().Int32Value();
+
+    GLbitfield mask = info[8].As<Napi::Number>().Uint32Value();
+    GLenum filter = info[9].As<Napi::Number>().Uint32Value();
+
+    glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+}
+
+Napi::Number __glCheckFramebufferStatus(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+
+    return Napi::Number::New(env, glCheckFramebufferStatus(target));
+}
+
+void __glDeleteFramebuffers(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLsizei n = info[0].As<Napi::Number>().Int32Value();
+    const GLuint* framebuffers = info[1].As<Napi::Uint32Array>().Data();
+
+    glDeleteFramebuffers(n, framebuffers);
+}
+
+void __glDeleteRenderbuffers(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLsizei n = info[0].As<Napi::Number>().Int32Value();
+    const GLuint* renderbuffers = info[1].As<Napi::Uint32Array>().Data();
+
+    glDeleteRenderbuffers(n, renderbuffers);
+}
+
+void __glFramebufferRenderbuffer(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum attachment = info[1].As<Napi::Number>().Uint32Value();
+    GLenum renderbuffertarget = info[2].As<Napi::Number>().Uint32Value();
+    GLuint renderbuffer = info[3].As<Napi::Number>().Uint32Value();
+
+    glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
+}
+
+void __glFramebufferTexture1D(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum attachment = info[1].As<Napi::Number>().Uint32Value();
+    GLenum textarget = info[2].As<Napi::Number>().Uint32Value();
+    GLuint texture = info[3].As<Napi::Number>().Uint32Value();
+    GLint level = info[4].As<Napi::Number>().Int32Value();
+
+    glFramebufferTexture1D(target, attachment, textarget, texture, level);
+}
+
+void __glFramebufferTexture2D(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum attachment = info[1].As<Napi::Number>().Uint32Value();
+    GLenum textarget = info[2].As<Napi::Number>().Uint32Value();
+    GLuint texture = info[3].As<Napi::Number>().Uint32Value();
+    GLint level = info[4].As<Napi::Number>().Int32Value();
+
+    glFramebufferTexture2D(target, attachment, textarget, texture, level);
+}
+
+void __glFramebufferTexture3D(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum attachment = info[1].As<Napi::Number>().Uint32Value();
+    GLenum textarget = info[2].As<Napi::Number>().Uint32Value();
+    GLuint texture = info[3].As<Napi::Number>().Uint32Value();
+    GLint level = info[4].As<Napi::Number>().Int32Value();
+    GLint layer = info[5].As<Napi::Number>().Int32Value();
+
+    glFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
+}
+
+void __glFramebufferTextureLayer(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum attachment = info[1].As<Napi::Number>().Uint32Value();
+    GLuint texture = info[2].As<Napi::Number>().Uint32Value();
+    GLint level = info[3].As<Napi::Number>().Int32Value();
+    GLint layer = info[4].As<Napi::Number>().Int32Value();
+
+    glFramebufferTextureLayer(target, attachment, texture, level, layer);
+}
+
+void __glGenFramebuffers(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLsizei n = info[0].As<Napi::Number>().Int32Value();
+    GLuint* framebuffers = info[1].As<Napi::Uint32Array>().Data();
+
+    glGenFramebuffers(n, framebuffers);
+}
+
+void __glGenRenderbuffers(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLsizei n = info[0].As<Napi::Number>().Int32Value();
+    GLuint* renderbuffers = info[1].As<Napi::Uint32Array>().Data();
+
+    glGenRenderbuffers(n, renderbuffers);
+}
+
+void __glGenerateMipmap(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    
+    glGenerateMipmap(target);
+}
+
+void __glGetFramebufferAttachmentParameteriv(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum attachment = info[1].As<Napi::Number>().Uint32Value();
+    GLenum pname = info[2].As<Napi::Number>().Uint32Value();
+    GLint* params = info[3].As<Napi::Int32Array>().Data();
+
+    glGetFramebufferAttachmentParameteriv(target, attachment, pname, params);
+}
+
+void __glGetRenderbufferParameteriv(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum pname = info[1].As<Napi::Number>().Uint32Value();
+    GLint* params = info[2].As<Napi::Int32Array>().Data();
+
+    glGetRenderbufferParameteriv(target, pname, params);
+}
+
+Napi::Boolean __glIsFramebuffer(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLuint framebuffer = info[0].As<Napi::Number>().Uint32Value();
+    
+    return Napi::Boolean::New(env, glIsFramebuffer(framebuffer) == GL_TRUE);
+}
+
+Napi::Boolean __glIsRenderbuffer(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLuint renderbuffer = info[0].As<Napi::Number>().Uint32Value();
+    
+    return Napi::Boolean::New(env, glIsRenderbuffer(renderbuffer) == GL_TRUE);
+}
+
+void __glRenderbufferStorage(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLenum internalformat = info[1].As<Napi::Number>().Uint32Value();
+    GLsizei width = info[2].As<Napi::Number>().Int32Value();
+    GLsizei height = info[3].As<Napi::Number>().Int32Value();
+
+    glRenderbufferStorage(target, internalformat, width, height);
+}
+
+void __glRenderbufferStorageMultisample(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    GLenum target = info[0].As<Napi::Number>().Uint32Value();
+    GLsizei samples = info[1].As<Napi::Number>().Int32Value();
+    GLenum internalformat = info[2].As<Napi::Number>().Uint32Value();
+    GLsizei width = info[3].As<Napi::Number>().Int32Value();
+    GLsizei height = info[4].As<Napi::Number>().Int32Value();
+
+    glRenderbufferStorageMultisample(target, samples, internalformat, width, height);
+}
+
+// End methods
+
 Napi::Object init(Napi::Env env, Napi::Object exports) {
     // GLEW methods
     Napi::Object glew = Napi::Object::New(env);
@@ -7468,6 +7701,29 @@ Napi::Object init(Napi::Env env, Napi::Object exports) {
     EXPORT_GL(glDeleteVertexArrays);
     EXPORT_GL(glGenVertexArrays);
     EXPORT_GL(glIsVertexArray);
+
+    // GL_ARB_framebuffer_object
+
+    EXPORT_GL(glBindFramebuffer);
+    EXPORT_GL(glBindRenderbuffer);
+    EXPORT_GL(glBlitFramebuffer);
+    EXPORT_GL(glCheckFramebufferStatus);
+    EXPORT_GL(glDeleteFramebuffers);
+    EXPORT_GL(glDeleteRenderbuffers);
+    EXPORT_GL(glFramebufferRenderbuffer);
+    EXPORT_GL(glFramebufferTexture1D);
+    EXPORT_GL(glFramebufferTexture2D);
+    EXPORT_GL(glFramebufferTexture3D);
+    EXPORT_GL(glFramebufferTextureLayer);
+    EXPORT_GL(glGenFramebuffers);
+    EXPORT_GL(glGenRenderbuffers);
+    EXPORT_GL(glGenerateMipmap);
+    EXPORT_GL(glGetFramebufferAttachmentParameteriv);
+    EXPORT_GL(glGetRenderbufferParameteriv);
+    EXPORT_GL(glIsFramebuffer);
+    EXPORT_GL(glIsRenderbuffer);
+    EXPORT_GL(glRenderbufferStorage);
+    EXPORT_GL(glRenderbufferStorageMultisample);
 
     exports.Set("glew", glew);
     exports.Set("gl", gl);

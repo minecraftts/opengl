@@ -1129,6 +1129,85 @@ export const GL_SPIR_V_BINARY = 0x9552;
 export const GL_SPIR_V_EXTENSIONS = 0x9553;
 export const GL_NUM_SPIR_V_EXTENSIONS = 0x9554;
 
+// Extension constants
+
+// GL_ARB_framebuffer_object
+
+export const GL_INVALID_FRAMEBUFFER_OPERATION = 0x0506;
+export const GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING = 0x8210;
+export const GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE = 0x8211;
+export const GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE = 0x8212;
+export const GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE = 0x8213;
+export const GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE = 0x8214;
+export const GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE = 0x8215;
+export const GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE = 0x8216;
+export const GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE = 0x8217;
+export const GL_FRAMEBUFFER_DEFAULT = 0x8218;
+export const GL_FRAMEBUFFER_UNDEFINED = 0x8219;
+export const GL_DEPTH_STENCIL_ATTACHMENT = 0x821A;
+export const GL_INDEX = 0x8222;
+export const GL_MAX_RENDERBUFFER_SIZE = 0x84E8;
+export const GL_DEPTH_STENCIL = 0x84F9;
+export const GL_UNSIGNED_INT_24_8 = 0x84FA;
+export const GL_DEPTH24_STENCIL8 = 0x88F0;
+export const GL_TEXTURE_STENCIL_SIZE = 0x88F1;
+export const GL_UNSIGNED_NORMALIZED = 0x8C17;
+export const GL_SRGB = 0x8C40;
+export const GL_DRAW_FRAMEBUFFER_BINDING = 0x8CA6;
+export const GL_FRAMEBUFFER_BINDING = 0x8CA6;
+export const GL_RENDERBUFFER_BINDING = 0x8CA7;
+export const GL_READ_FRAMEBUFFER = 0x8CA8;
+export const GL_DRAW_FRAMEBUFFER = 0x8CA9;
+export const GL_READ_FRAMEBUFFER_BINDING = 0x8CAA;
+export const GL_RENDERBUFFER_SAMPLES = 0x8CAB;
+export const GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = 0x8CD0;
+export const GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = 0x8CD1;
+export const GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0x8CD2;
+export const GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0x8CD3;
+export const GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER = 0x8CD4;
+export const GL_FRAMEBUFFER_COMPLETE = 0x8CD5;
+export const GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 0x8CD6;
+export const GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = 0x8CD7;
+export const GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER = 0x8CDB;
+export const GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER = 0x8CDC;
+export const GL_FRAMEBUFFER_UNSUPPORTED = 0x8CDD;
+export const GL_MAX_COLOR_ATTACHMENTS = 0x8CDF;
+export const GL_COLOR_ATTACHMENT0 = 0x8CE0;
+export const GL_COLOR_ATTACHMENT1 = 0x8CE1;
+export const GL_COLOR_ATTACHMENT2 = 0x8CE2;
+export const GL_COLOR_ATTACHMENT3 = 0x8CE3;
+export const GL_COLOR_ATTACHMENT4 = 0x8CE4;
+export const GL_COLOR_ATTACHMENT5 = 0x8CE5;
+export const GL_COLOR_ATTACHMENT6 = 0x8CE6;
+export const GL_COLOR_ATTACHMENT7 = 0x8CE7;
+export const GL_COLOR_ATTACHMENT8 = 0x8CE8;
+export const GL_COLOR_ATTACHMENT9 = 0x8CE9;
+export const GL_COLOR_ATTACHMENT10 = 0x8CEA;
+export const GL_COLOR_ATTACHMENT11 = 0x8CEB;
+export const GL_COLOR_ATTACHMENT12 = 0x8CEC;
+export const GL_COLOR_ATTACHMENT13 = 0x8CED;
+export const GL_COLOR_ATTACHMENT14 = 0x8CEE;
+export const GL_COLOR_ATTACHMENT15 = 0x8CEF;
+export const GL_DEPTH_ATTACHMENT = 0x8D00;
+export const GL_STENCIL_ATTACHMENT = 0x8D20;
+export const GL_FRAMEBUFFER = 0x8D40;
+export const GL_RENDERBUFFER = 0x8D41;
+export const GL_RENDERBUFFER_WIDTH = 0x8D42;
+export const GL_RENDERBUFFER_HEIGHT = 0x8D43;
+export const GL_RENDERBUFFER_INTERNAL_FORMAT = 0x8D44;
+export const GL_STENCIL_INDEX1 = 0x8D46;
+export const GL_STENCIL_INDEX4 = 0x8D47;
+export const GL_STENCIL_INDEX8 = 0x8D48;
+export const GL_STENCIL_INDEX16 = 0x8D49;
+export const GL_RENDERBUFFER_RED_SIZE = 0x8D50;
+export const GL_RENDERBUFFER_GREEN_SIZE = 0x8D51;
+export const GL_RENDERBUFFER_BLUE_SIZE = 0x8D52;
+export const GL_RENDERBUFFER_ALPHA_SIZE = 0x8D53;
+export const GL_RENDERBUFFER_DEPTH_SIZE = 0x8D54;
+export const GL_RENDERBUFFER_STENCIL_SIZE = 0x8D55;
+export const GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE = 0x8D56;
+export const GL_MAX_SAMPLES = 0x8D57;
+
 // OpenGL Core 1.1 functions
 
 export function glAccum(op: number, value: number): void;
@@ -2351,3 +2430,35 @@ export function glBindVertexArray(array: number): void;
 export function glDeleteVertexArrays(n: number, arrays: Uint32Array): void;
 export function glGenVertexArrays(n: number, arrays: Uint32Array): void;
 export function glIsVertexArray(array: number): boolean;
+
+// GL_ARB_framebuffer_object
+
+export function glBindFramebuffer(target: number, framebuffer: number): void;
+export function glBindRenderbuffer(target: number, renderbuffer: number): void;
+export function glBlitFramebuffer(srcX0: number,
+    srcY0: number,
+    srcX1: number,
+    srcY1: number,
+    dstX0: number,
+    dstY0: number,
+    dstX1: number,
+    dstY1: number,
+    mask: number,
+    filter: number): void;
+export function glCheckFramebufferStatus(target: number): number;
+export function glDeleteFramebuffers(n: number, framebuffers: Uint32Array): void;
+export function glDeleteRenderbuffers(n: number, renderbuffers: Uint32Array): void;
+export function glFramebufferRenderbuffer(target: number, attachment: number, renderbuffertarget: number, renderbuffer: number): void;
+export function glFramebufferTexture1D(target: number, attachment: number, textarget: number, texture: number, level: number): void;
+export function glFramebufferTexture2D(target: number, attachment: number, textarget: number, texture: number, level: number): void;
+export function glFramebufferTexture3D(target: number, attachment: number, textarget: number, texture: number, level: number, layer: number): void;
+export function glFramebufferTextureLayer(target: number, attachment: number, texture: number, level: number, layer: number): void;
+export function glGenFramebuffers(n: number, framebuffers: Uint32Array): void;
+export function glGenRenderbuffers(n: number, renderbuffers: Uint32Array): void;
+export function glGenerateMipmap(target: number): void;
+export function glGetFramebufferAttachmentParameteriv(target: number, attachment: number, pname: number, params: Int32Array): void;
+export function glGetRenderbufferParameteriv(target: number, pname: number, params: Int32Array): void;
+export function glIsFramebuffer(framebuffer: number): boolean;
+export function glIsRenderbuffer(renderbuffer: number): boolean;
+export function glRenderbufferStorage(target: number, internalformat: number, width: number, height: number): void;
+export function glRenderbufferStorageMultisample(target: number, samples: number, internalformat: number, width: number, height: number): void;
