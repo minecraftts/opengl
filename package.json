@@ -1,12 +1,11 @@
 {
   "name": "@minecraftts/opengl",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "OpenGL & GLEW bindings for Node.js",
   "main": "index.js",
   "scripts": {
     "build": "npx cmake-js compile",
-    "postinstall": "npm run build",
-    "publish": "npm publish --access public"
+    "postinstall": "npm run build"
   },
   "files": [
     "src/bindings.cc",
